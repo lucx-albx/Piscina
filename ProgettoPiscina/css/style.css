@@ -1,0 +1,189 @@
+row, div{
+    margin: 0px 0px 0px 0px !important;
+    padding: 0px 0px 0px 0px !important;
+}
+  
+body{
+    background-color: aqua!important;
+}
+
+.table-container {
+    overflow-y: auto;
+    overflow-x: overlay;
+    background-color: rgb(44, 134, 224);
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+} 
+
+thead {
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+    
+th, td {
+    margin: 0;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-right: 0;
+}
+
+th {
+    position: sticky;
+    top: 0px;
+    border: 1px solid black;
+    background-image: radial-gradient(rgb(124, 172, 228),rgb(132, 171, 216));
+    padding: 7px;
+}
+
+td {
+    border: 1px solid black;
+    color: white;
+    font-size: large;
+    font:caption;
+    padding: 10px;
+}
+
+body {
+    overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(27, 190, 255, 0);
+    width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(27, 190, 255, 0.4);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(27, 190, 255, 0.6);
+}
+
+::-webkit-scrollbar-track-piece {
+    width: 2px;
+}
+
+.effect:hover{
+    background-color: rgb(27, 190, 255);
+    cursor: pointer;
+}
+
+.Lez {
+    display: none;
+}
+
+.Max{
+    display: none;
+}
+
+.Min{
+    display: none;
+}
+
+@media screen and (min-width: 400px) {
+    .Lez {
+      display: table-cell;
+    }
+}
+
+@media screen and (min-width: 350px) {
+    .Max {
+      display: table-cell;
+    }
+
+    .Min{
+        display: table-cell;
+    }
+}
+
+.bg-footer{
+    background-color: #0693E3;  
+    width: 100%;
+}
+
+.Header_Style{
+    background-color: aqua;
+    color: white;
+    text-align: center;
+}
+
+.bg{
+    background-color: rgb(54, 131, 194);
+}
+
+.bet{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.decoHidden{
+    visibility: hidden;
+}
+
+.decoVisible{
+    visibility: visible;
+}
+
+.mt{
+    border-top: 1px solid rgb(78, 138, 230);
+}
+
+.Tit{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-image: radial-gradient(rgb(124, 172, 228),rgb(132, 171, 216));
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.bottom-Bord{
+    border-bottom: 1px solid black;
+}
+
+.SubTit{
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    background-color: rgb(44, 134, 224);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.cambioHeightOn{
+    height: 500px;
+}
+
+.color1{
+    background-color: #0693e3;
+}
+
+.h0{
+    font-size: 60.8px;
+    line-height: 62.8px;
+    margin: 0;
+    font-weight: 600;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.p{
+    padding: 15px 0px 15px 0px!important;
+}

@@ -1,0 +1,85 @@
+const url = "https://lucx-albx.github.io/Dati/Dati_Piscina.json"
+let fixBottom;
+let pos = 0;
+
+const datiLoading =()=>{
+    fetch(url) 
+    .then((dati) => dati.json())
+    .then((data)=>{
+        const dateTable = document.querySelector("table tbody");
+
+        let insert = ""
+        data.forEach(function({Num_Lezione, Nome_Alunno, Fatica, M_Percorsi, Max_Freq_Card, Min_Freq_Card}) {
+            insert += "<tr class='effect' onclick='selezione(this)'>";
+            insert += `<td class="Lez">${Num_Lezione}</td>`
+            insert += `<td class="Alun">${Nome_Alunno}</td>`
+            insert += `<td class="Fat">${Fatica}</td>`
+            insert += `<td class="MPer">${M_Percorsi}</td>`
+            insert += `<td class="Max">${Max_Freq_Card}</td>`
+            insert += `<td class="Min">${Min_Freq_Card}</td>`
+            insert += "</tr>";
+        })
+        dateTable.innerHTML = insert;
+    })
+}
+
+
+
+function animazioneFooter(){
+    let elem = document.querySelector(".bg");  
+    pos = -200;
+    let id = setInterval(frame, 5);
+    function frame() {
+        if (pos == 0) {
+        clearInterval(id);
+        } else if(fixBottom == 1){
+            pos = 1500
+            elem.style.bottom = pos + 'px';
+        }
+        else {
+            pos++; 
+            elem.style.bottom = pos + 'px'; 
+        }
+    }
+
+    let classe = document.querySelector(".bg").classList;
+    if (classe.contains("decoHidden"))
+        classe.replace("decoHidden", "decoVisible");
+
+    fixBottom = 0;
+}
+
+function nascondiFooter(){
+    let classe = document.querySelector(".bg").classList;
+    let elem = document.querySelector(".mt");  
+
+    classe.replace("decoVisible", "decoHidden");
+
+    pos = 1500
+    elem.style.bottom = pos + 'px'; 
+    fixBottom=1;
+}
+
+const selezione =(riga)=>{
+    animazioneFooter()
+    let Numero_Lezione = riga.querySelector(".Lez")
+    let Alunno = riga.querySelector(".Alun")
+    let Fatica = riga.querySelector(".Fat")
+    let m_percorsi = riga.querySelector(".MPer")
+    let Freq_Max = riga.querySelector(".Max")
+    let Freq_Min = riga.querySelector(".Min")
+
+    let Label_Num_Lez = document.querySelector(".LezLab")
+    let Label_Alunno = document.querySelector(".AlLab")
+    let Label_Fatica = document.querySelector(".FatLab")
+    let Label_m_percorsi = document.querySelector(".MPerLab")
+    let Label_Freq_Max = document.querySelector(".MaxLab")
+    let Label_Freq_Min = document.querySelector(".MinLab")
+    
+    Label_Num_Lez.textContent = Numero_Lezione.textContent
+    Label_Alunno.textContent = Alunno.textContent
+    Label_Fatica.textContent = Fatica.textContent
+    Label_m_percorsi.textContent = m_percorsi.textContent
+    Label_Freq_Max.textContent = Freq_Max.textContent
+    Label_Freq_Min.textContent = Freq_Min.textContent
+}

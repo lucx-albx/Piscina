@@ -46,10 +46,6 @@ td {
     padding: 10px;
 }
 
-body {
-    overflow-y: hidden;
-}
-
 ::-webkit-scrollbar {
     width: 12px;
     border-top: 1px solid black;

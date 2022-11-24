@@ -1,8 +1,15 @@
 const url = "https://lucx-albx.github.io/Dati/Dati_Piscina.json"
 let fixBottom;
 let pos = 0;
+let ArrayFreqMax = []
+let ArrayFreqMin = []
+let sommaFreq = 0
+let MediaTot = 0
+let i  = 0
+
 
 const datiLoading =()=>{
+
     fetch(url) 
     .then((dati) => dati.json())
     .then((data)=>{
@@ -18,12 +25,27 @@ const datiLoading =()=>{
             insert += `<td class="Max">${Max_Freq_Card}</td>`
             insert += `<td class="Min">${Min_Freq_Card}</td>`
             insert += "</tr>";
+            SommaFrequenze(Max_Freq_Card, Min_Freq_Card)
         })
         dateTable.innerHTML = insert;
     })
+    
 }
 
+const SommaFrequenze =(max, min)=>{
+    
+    if(max != null && min != null){
+        i += 2
+        sommaFreq += parseInt(max) + parseInt(min)
+    }
+    
+}
 
+const Media =()=>{
+    MediaTot = sommaFreq/i
+    let Label_Media = document.querySelector(".ResultTotMedia")
+    Label_Media.innerHTML = MediaTot
+}
 
 function animazioneFooter(){
     let elem = document.querySelector(".bg");  
@@ -75,6 +97,7 @@ const selezione =(riga)=>{
     let Label_m_percorsi = document.querySelector(".MPerLab")
     let Label_Freq_Max = document.querySelector(".MaxLab")
     let Label_Freq_Min = document.querySelector(".MinLab")
+    let Label_Media_Frequenze_Singole = document.querySelector(".media")
     
     Label_Num_Lez.textContent = Numero_Lezione.textContent
     Label_Alunno.textContent = Alunno.textContent
@@ -82,4 +105,14 @@ const selezione =(riga)=>{
     Label_m_percorsi.textContent = m_percorsi.textContent
     Label_Freq_Max.textContent = Freq_Max.textContent
     Label_Freq_Min.textContent = Freq_Min.textContent
+
+    let mediaFrequenze = 0
+    
+    if (Freq_Max.textContent != "null" && Freq_Min.textContent != "null"){
+        mediaFrequenze = (parseInt(Freq_Max.textContent) + parseInt(Freq_Min.textContent))/2
+    } else {
+        mediaFrequenze = "null"
+    }
+    Label_Media_Frequenze_Singole.textContent = mediaFrequenze
+    
 }

@@ -44,7 +44,7 @@ const SommaFrequenze =(max, min)=>{
 const Media =()=>{
     MediaTot = sommaFreq/i
     let Label_Media = document.querySelector(".ResultTotMedia")
-    Label_Media.innerHTML = MediaTot
+    Label_Media.innerHTML = MediaTot.toFixed(2);
 }
 
 function animazioneFooter(){

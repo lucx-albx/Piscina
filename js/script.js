@@ -8,7 +8,29 @@ let MediaTot = 0
 let i  = 0
 
 
+
+const AllData =()=>{
+    const table = document.querySelector('Table thead');
+
+    let tableHtml = "";
+    tableHtml += "<tr>";
+    tableHtml += `<th class="Lez"><div class="d-flex justify-content-center">N. lezione</div></th>`;
+    tableHtml += `<th class="Alun"><div class="d-flex justify-content-center">Alunno</div></th>`;
+    tableHtml += `<th class="Fat"><div class="d-flex justify-content-center">Fatica Percepita</div></th>`;
+    tableHtml += `<th class="MPer"><div class="d-flex justify-content-center">m. Percorsi</div></th>`;
+    tableHtml += `<th class="Max"><div class="d-flex justify-content-center">Max Freq Card</div></th>`;
+    tableHtml += `<th class="Min"><div class="d-flex justify-content-center">Min Freq Card</div></th>`;
+    tableHtml += "</tr>";
+
+    table.innerHTML = tableHtml;     
+}
+
 const datiLoading =()=>{
+    let Label_Media = document.querySelector(".ResultTotMedia")
+    Label_Media.innerHTML = "Cliccami";
+    i = 0
+    sommaFreq = 0
+    AllData()
 
     fetch(url) 
     .then((dati) => dati.json())
@@ -26,6 +48,126 @@ const datiLoading =()=>{
             insert += `<td class="Min">${Min_Freq_Card}</td>`
             insert += "</tr>";
             SommaFrequenze(Max_Freq_Card, Min_Freq_Card)
+        })
+        dateTable.innerHTML = insert;
+    })
+
+}
+
+const Fortunato =()=>{
+    let Label_Media = document.querySelector(".ResultTotMedia")
+    Label_Media.innerHTML = "Cliccami";
+    i = 0
+    sommaFreq = 0
+
+    fetch(url) 
+    .then((dati) => dati.json())
+    .then((data)=>{
+        const dateTable = document.querySelector("table tbody");
+
+        let insert = ""
+        data.forEach(function({Num_Lezione, Nome_Alunno, Fatica, M_Percorsi, Max_Freq_Card, Min_Freq_Card}) {
+            if(Nome_Alunno == "Fortunato"){
+                insert += "<tr class='effect' onclick='selezione(this)'>";
+                insert += `<td class="Lez">${Num_Lezione}</td>`
+                insert += `<td class="Alun">${Nome_Alunno}</td>`
+                insert += `<td class="Fat">${Fatica}</td>`
+                insert += `<td class="MPer">${M_Percorsi}</td>`
+                insert += `<td class="Max">${Max_Freq_Card}</td>`
+                insert += `<td class="Min">${Min_Freq_Card}</td>`
+                insert += "</tr>";
+                SommaFrequenze(Max_Freq_Card, Min_Freq_Card)
+            }
+        })
+        dateTable.innerHTML = insert;
+    })
+    
+}
+
+const Audisio =()=>{
+    let Label_Media = document.querySelector(".ResultTotMedia")
+    Label_Media.innerHTML = "Cliccami";
+    i = 0
+    sommaFreq = 0
+
+    fetch(url) 
+    .then((dati) => dati.json())
+    .then((data)=>{
+        const dateTable = document.querySelector("table tbody");
+
+        let insert = ""
+        data.forEach(function({Num_Lezione, Nome_Alunno, Fatica, M_Percorsi, Max_Freq_Card, Min_Freq_Card}) {
+            if(Nome_Alunno == "Audisio"){
+                insert += "<tr class='effect' onclick='selezione(this)'>";
+                insert += `<td class="Lez">${Num_Lezione}</td>`
+                insert += `<td class="Alun">${Nome_Alunno}</td>`
+                insert += `<td class="Fat">${Fatica}</td>`
+                insert += `<td class="MPer">${M_Percorsi}</td>`
+                insert += `<td class="Max">${Max_Freq_Card}</td>`
+                insert += `<td class="Min">${Min_Freq_Card}</td>`
+                insert += "</tr>";
+                SommaFrequenze(Max_Freq_Card, Min_Freq_Card)
+            }
+        })
+        dateTable.innerHTML = insert;
+    })
+    
+}
+
+const Massimo =()=>{
+    let Label_Media = document.querySelector(".ResultTotMedia")
+    Label_Media.innerHTML = "Cliccami";
+    i = 0
+    sommaFreq = 0
+
+    fetch(url) 
+    .then((dati) => dati.json())
+    .then((data)=>{
+        const dateTable = document.querySelector("table tbody");
+
+        let insert = ""
+        data.forEach(function({Num_Lezione, Nome_Alunno, Fatica, M_Percorsi, Max_Freq_Card, Min_Freq_Card}) {
+            if(Nome_Alunno == "Massimo"){
+                insert += "<tr class='effect' onclick='selezione(this)'>";
+                insert += `<td class="Lez">${Num_Lezione}</td>`
+                insert += `<td class="Alun">${Nome_Alunno}</td>`
+                insert += `<td class="Fat">${Fatica}</td>`
+                insert += `<td class="MPer">${M_Percorsi}</td>`
+                insert += `<td class="Max">${Max_Freq_Card}</td>`
+                insert += `<td class="Min">${Min_Freq_Card}</td>`
+                insert += "</tr>";
+                SommaFrequenze(Max_Freq_Card, Min_Freq_Card)
+            }
+        })
+        dateTable.innerHTML = insert;
+    })
+    
+}
+
+const Paseri =()=>{
+    let Label_Media = document.querySelector(".ResultTotMedia")
+    Label_Media.innerHTML = "Cliccami";
+    i = 0
+    sommaFreq = 0
+
+    fetch(url) 
+    .then((dati) => dati.json())
+    .then((data)=>{
+        const dateTable = document.querySelector("table tbody");
+
+        let insert = ""
+        data.forEach(function({Num_Lezione, Nome_Alunno, Fatica, M_Percorsi, Max_Freq_Card, Min_Freq_Card}) {
+            if(Nome_Alunno == "Paseri"){
+                insert += "<tr class='effect' onclick='selezione(this)'>";
+                insert += `<td class="Lez">${Num_Lezione}</td>`
+                insert += `<td class="Alun">${Nome_Alunno}</td>`
+                insert += `<td class="Fat">${Fatica}</td>`
+                insert += `<td class="MPer">${M_Percorsi}</td>`
+                insert += `<td class="Max">${Max_Freq_Card}</td>`
+                insert += `<td class="Min">${Min_Freq_Card}</td>`
+                insert += "</tr>";
+                SommaFrequenze(Max_Freq_Card, Min_Freq_Card)
+            }
         })
         dateTable.innerHTML = insert;
     })

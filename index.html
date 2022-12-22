@@ -11,25 +11,47 @@
 
 </head>
 <body onload="datiLoading()">
-
     <div class='container-fluid'>
-        <div class='row Header_Style '>
-            <div class='col-12 d-flex justify-content-center p'> 
-                <div class="h0"><strong>Misurazioni Fatica</strong></div>
+        <div class="d-none d-md-block prova">
+            <div class="row Header_Style">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 btn-group d-flex justify-content-center mt-3 mb-3">
+                    <button type="button" class="btn btn-info " onclick="datiLoading()"><strong>Tutti</strong></button>
+                    <button type="button" class="btn btn-info " onclick="Fortunato()"><strong>Fortunato</strong></button>
+                    <button type="button" class="btn btn-info " onclick="Audisio()"><strong>Audisio</strong></button>
+                    <button type="button" class="btn btn-info " onclick="Massimo()"><strong>Massimo</strong></button>
+                    <button type="button" class="btn btn-info " onclick="Paseri()"><strong>Paseri</strong></button>
+                </div>
             </div>
+        </div>
+
+        <!-- navbar da smartphone -->
+        <div class="d-md-none">
+            <div class="row Header_Style">
+                <div class="col-md-12 col-sm-12 col-12 btn-group d-flex justify-content-center mt-3 mb-3">
+                    <button type="button" class="btn btn-info situazione2" onclick="datiLoading()"><strong>Tutti</strong></button>
+                    <button type="button" class="btn btn-info ended2" onclick="Fortunato()"><strong>Fortunato</strong></button>
+                    <button type="button" class="btn btn-info newmov2" onclick="Audisio()"><strong>Audisio</strong></button>
+
+                </div>
+
+                <div class="col btn-group d-flex justify-content-center mb-3">
+                    <button type="button" class="btn btn-info newart2" onclick="Massimo()"><strong>Massimo</strong></button>
+                    <button type="button" class="btn btn-info newart2" onclick="Paseri()"><strong>Paseri</strong></button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class='table-container table-responsive'>
+            <table id="tabella">
+                <thead></thead>
+                <tbody id="myTable"></tbody>
+            </table>
         </div>
 
         <div class="table-container table-responsive">
             <table>
                 <thead>
-                    <tr>
-                        <th class="Lez"><div class="d-flex justify-content-center">N. lezione</div></th>
-                        <th class="Alun"><div class="d-flex justify-content-center">Alunno</div></th>
-                        <th class="Fat"><div class="d-flex justify-content-center">Fatica Percepita</div></th>
-                        <th class="MPer"><div class="d-flex justify-content-center">m. Percorsi</div></th>
-                        <th class="Max"><div class="d-flex justify-content-center">Max Freq Card</div></th>
-                        <th class="Min"><div class="d-flex justify-content-center">Min Freq Card</div></th>
-                    </tr>
                 </thead>
                 <tbody id="myTable"></tbody>
             </table>
@@ -44,9 +66,45 @@
             
         </div>
 
-	  <!-- <div class="row fixed-bottom">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgb(0, 69, 197)" fill-opacity="1" d="M0,96L80,90.7C160,85,320,75,480,90.7C640,107,800,149,960,149.3C1120,149,1280,107,1360,85.3L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-	</div> -->
+	<div class="row ">
+		<svg width="100%" height="100%" id="svg" viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>
+            .path-0{
+              animation:pathAnim-0 4s;
+              animation-timing-function: linear;
+              animation-iteration-count: infinite;
+            }
+            @keyframes pathAnim-0{
+              0%{
+                d: path("M 0,500 C 0,500 0,250 0,250 C 113.46428571428572,265.4642857142857 226.92857142857144,280.92857142857144 341,254 C 455.07142857142856,227.07142857142858 569.75,157.74999999999994 698,174 C 826.25,190.25000000000006 968.0714285714287,292.0714285714286 1094,319 C 1219.9285714285713,345.9285714285714 1329.9642857142858,297.96428571428567 1440,250 C 1440,250 1440,500 1440,500 Z");
+              }
+              25%{
+                d: path("M 0,500 C 0,500 0,250 0,250 C 94.71428571428572,229.03571428571428 189.42857142857144,208.07142857142858 321,189 C 452.57142857142856,169.92857142857142 620.9999999999999,152.75 765,160 C 909.0000000000001,167.25 1028.5714285714287,198.92857142857144 1137,218 C 1245.4285714285713,237.07142857142856 1342.7142857142858,243.53571428571428 1440,250 C 1440,250 1440,500 1440,500 Z");
+              }
+              50%{
+                d: path("M 0,500 C 0,500 0,250 0,250 C 141.85714285714286,245.14285714285714 283.7142857142857,240.28571428571428 392,227 C 500.2857142857143,213.71428571428572 574.9999999999999,192 697,212 C 819.0000000000001,232 988.2857142857142,293.7142857142857 1120,307 C 1251.7142857142858,320.2857142857143 1345.857142857143,285.1428571428571 1440,250 C 1440,250 1440,500 1440,500 Z");
+              }
+              75%{
+                d: path("M 0,500 C 0,500 0,250 0,250 C 97,215.28571428571428 194,180.57142857142858 322,209 C 450,237.42857142857142 609,329.00000000000006 735,335 C 861,340.99999999999994 954,261.42857142857144 1066,233 C 1178,204.57142857142856 1309,227.28571428571428 1440,250 C 1440,250 1440,500 1440,500 Z");
+              }
+              100%{
+                d: path("M 0,500 C 0,500 0,250 0,250 C 113.46428571428572,265.4642857142857 226.92857142857144,280.92857142857144 341,254 C 455.07142857142856,227.07142857142858 569.75,157.74999999999994 698,174 C 826.25,190.25000000000006 968.0714285714287,292.0714285714286 1094,319 C 1219.9285714285713,345.9285714285714 1329.9642857142858,297.96428571428567 1440,250 C 1440,250 1440,500 1440,500 Z");
+              }
+            }</style><path d="M 0,500 C 0,500 0,250 0,250 C 113.46428571428572,265.4642857142857 226.92857142857144,280.92857142857144 341,254 C 455.07142857142856,227.07142857142858 569.75,157.74999999999994 698,174 C 826.25,190.25000000000006 968.0714285714287,292.0714285714286 1094,319 C 1219.9285714285713,345.9285714285714 1329.9642857142858,297.96428571428567 1440,250 C 1440,250 1440,500 1440,500 Z" stroke="none" stroke-width="0" fill="#0045c5" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
+    </div>
+    
+    <div class="row sticky color1 justify-content-center">
+
+        <div class="col-6 col-lg-4 col-xl-4 col-sm-6 col-md-4">
+            <h5 style="color: white;">- Chi Sono?</h5>
+            <p  style="color: white;">Sono Luca ho 17 anni è svolgo la 4 ITIS INFO. <br> A.S 2022/2023</p>
+        </div>
+
+        <div class="col-6 col-lg-4 col-xl-4 col-sm-6 col-md-4">
+            <h5 style="color: white;">- Come nasce il progetto?</h5>
+            <p  style="color: white;">Questo progetto nasce con l'intento di misurare i vari dati di alcuni compagni tamite l'utilizzo della tabella di borg.</p>
+        </div>
+
+    </div>
 
     <div class="row fixed-bottom bg bet mt decoHidden" style="bottom: 1500px;">
         <div class="col-10 d-flex justify-content-center font"></div> 

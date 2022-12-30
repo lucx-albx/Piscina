@@ -18,8 +18,8 @@ const AllData =()=>{
     tableHtml += `<th class="Alun"><div class="d-flex justify-content-center">Alunno</div></th>`;
     tableHtml += `<th class="Fat"><div class="d-flex justify-content-center">Fatica Percepita</div></th>`;
     tableHtml += `<th class="MPer"><div class="d-flex justify-content-center">m. Percorsi</div></th>`;
-    tableHtml += `<th class="Max"><div class="d-flex justify-content-center">Max Freq Card</div></th>`;
-    tableHtml += `<th class="Min"><div class="d-flex justify-content-center">Min Freq Card</div></th>`;
+    tableHtml += `<th class="Max"><div class="d-flex justify-content-center">Max Freq Card (bpm)</div></th>`;
+    tableHtml += `<th class="Min"><div class="d-flex justify-content-center">Min Freq Card (bpm)</div></th>`;
     tableHtml += "</tr>";
 
     table.innerHTML = tableHtml;     
@@ -189,7 +189,7 @@ const Media =()=>{
     Label_Media.innerHTML = MediaTot.toFixed(2);
 }
 
-function animazioneFooter(){
+const animazioneFooter =()=>{
     let elem = document.querySelector(".bg");  
     pos = -200;
     let id = setInterval(frame, 5);
@@ -213,7 +213,7 @@ function animazioneFooter(){
     fixBottom = 0;
 }
 
-function nascondiFooter(){
+const nascondiFooter =()=>{
     let classe = document.querySelector(".bg").classList;
     let elem = document.querySelector(".mt");  
 
